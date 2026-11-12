@@ -1184,8 +1184,7 @@ body.guest-mode .btn-al-remove,body.guest-mode .a3-add,body.guest-mode .t11-grou
           <label data-i18n="lbl_tg">TG Level</label>
           <select class="f-tg" id="pool-tg">
             <option value="">—</option>
-            <option>TG1</option><option>TG2</option><option>TG3</option>
-            <option>TG4</option><option>TG5</option><option>TG6</option>
+            <option>TG6</option>
             <option>TG7</option><option>TG8</option>
           </select>
         </div>
@@ -1224,7 +1223,6 @@ body.guest-mode .btn-al-remove,body.guest-mode .a3-add,body.guest-mode .t11-grou
         <button class="filter-btn" onclick="togglePoolFilter('rl',this)" style="color:var(--rl)">★ RL</button>
         <select class="filter-btn tg-filter-select" id="pool-tg-filter" onchange="renderPool()">
           <option value="">TG Level: All</option>
-          <option value="TG5">TG5</option>
           <option value="TG6">TG6</option>
           <option value="TG7">TG7</option>
           <option value="TG8">TG8</option>
@@ -1342,7 +1340,6 @@ body.guest-mode .btn-al-remove,body.guest-mode .a3-add,body.guest-mode .t11-grou
         <button class="filter-btn" onclick="toggleFilter('rl',this)" style="color:var(--rl)">★ RL</button>
         <select class="filter-btn tg-filter-select" id="tg-filter" onchange="renderTable()">
           <option value="">TG Level: All</option>
-          <option value="TG5">TG5</option>
           <option value="TG6">TG6</option>
           <option value="TG7">TG7</option>
           <option value="TG8">TG8</option>
@@ -1388,8 +1385,7 @@ body.guest-mode .btn-al-remove,body.guest-mode .a3-add,body.guest-mode .t11-grou
       <label data-i18n="lbl_tg">TG Level</label>
       <select id="edit-tg">
         <option value="">—</option>
-        <option>TG1</option><option>TG2</option><option>TG3</option>
-        <option>TG4</option><option>TG5</option><option>TG6</option>
+        <option>TG6</option>
         <option>TG7</option><option>TG8</option>
       </select>
     </div>
@@ -1946,7 +1942,9 @@ function openEdit(id){
   const p=pool.find(x=>x.id===id); if(!p) return;
   document.getElementById('edit-id').value=id;
   document.getElementById('edit-pseudo').value=p.pseudo;
-  document.getElementById('edit-tg').value=p.tg||'';
+  { const sel=document.getElementById('edit-tg'); sel.querySelectorAll('option[data-old]').forEach(o=>o.remove());
+    if(p.tg && ![...sel.options].some(o=>o.value===p.tg)){ const o=document.createElement('option'); o.textContent=p.tg; o.dataset.old='1'; sel.appendChild(o); }
+    sel.value=p.tg||''; }
   if(typeof p.t11s!=='string' && p.t11){ const o=document.querySelector('#edit-t11g option[value="?"]'); o.hidden=false; o.disabled=false; document.getElementById('edit-t11g').value='?'; } else { const o=document.querySelector('#edit-t11g option[value="?"]'); o.hidden=true; o.disabled=true; setT11('edit-t11g', p.t11s||''); }
   { const o=document.querySelector('#edit-alliance option[value="pan"]'); if(o){ o.disabled=!!allianceNames.off3; o.hidden=!!allianceNames.off3; } }
   document.getElementById('edit-alliance').value=p.alliance||'';
