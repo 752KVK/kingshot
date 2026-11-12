@@ -993,6 +993,59 @@ body.guest-mode .pool-add-form { display: none; }
   h1 { letter-spacing: 3px; }
 }
 .table-wrap { overflow-x: auto; }
+
+/* ===== T11 types ===== */
+select.f-t11{width:auto!important;min-width:150px;max-width:230px}
+.t11-group{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap}
+.t11-lbl{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--t11);margin-right:2px}
+.t11-group button{background:none;border:1px solid var(--border);color:var(--text-muted);cursor:pointer;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:1px;padding:5px 8px;min-height:30px;transition:all .15s}
+.t11-group button:hover{border-color:var(--t11);color:var(--t11)}
+.t11-group button.on{border-color:var(--t11);color:#fff;background:rgba(160,112,255,.35)}
+.badge.t11.t11-all{background:rgba(160,112,255,.28);color:#fff}
+/* ===== coloured stars ===== */
+.player-card.rally-lead{border-color:var(--sc,var(--rl))!important;background:linear-gradient(135deg,color-mix(in srgb,var(--sc,var(--rl)) 16%,transparent) 0%,var(--bg3) 75%);box-shadow:0 0 10px color-mix(in srgb,var(--sc,var(--rl)) 35%,transparent)}
+.player-card.rally-lead .player-pseudo{color:var(--sc,var(--rl));text-shadow:0 0 8px color-mix(in srgb,var(--sc,var(--rl)) 40%,transparent)}
+.player-card.rally-lead .avail-stripe{background:var(--sc,var(--rl))!important}
+.player-card.rally-lead:not(.star-gold){animation:none}
+.pool-card.rally-lead{border-color:var(--sc,var(--rl))}
+.pool-card.rally-lead .pool-pseudo{color:var(--sc,var(--rl))}
+.btn-rl.active{border-color:var(--sc,var(--rl));color:var(--sc,var(--rl));background:color-mix(in srgb,var(--sc,var(--rl)) 12%,transparent)}
+.btn-rl{min-width:30px;min-height:28px}
+.star-pop{position:fixed;z-index:10050;background:var(--bg2);border:1px solid var(--border-bright);box-shadow:0 10px 30px rgba(0,0,0,.6);padding:8px;display:flex;flex-direction:column;gap:4px;min-width:170px}
+.star-pop button{display:flex;align-items:center;gap:10px;background:none;border:1px solid transparent;color:var(--text);cursor:pointer;padding:8px 10px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;text-align:left;min-height:40px}
+.star-pop button:hover,.star-pop button.on{border-color:var(--border-bright);background:var(--bg3)}
+.star-pop button b{font-size:20px;line-height:1}
+.star-pop .sp-title{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--text-dim);padding:2px 4px 4px}
+.star-ic{display:inline-block;margin-right:3px}
+.badge.star-b{border-color:var(--sc);color:var(--sc);background:color-mix(in srgb,var(--sc) 12%,transparent)}
+/* ===== ranking number in alliances ===== */
+.p-rank{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text-dim);min-width:18px;text-align:right;flex-shrink:0}
+.rank-help{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--text-dim);text-align:center;margin:-22px 0 14px;padding:0 10px}
+/* ===== 3rd alliance removable ===== */
+body.no-a3 .a3{display:none!important}
+.a3-add{display:none}
+body.no-a3 .a3-add{display:flex}
+@media(min-width:901px){ body.no-a3 .alliances{grid-template-columns:1fr 1fr 150px} }
+.a3-add{align-items:center;justify-content:center;flex-direction:column;gap:8px;border:2px dashed var(--border-bright);background:transparent;color:var(--text-muted);cursor:pointer;min-height:120px;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:all .15s}
+.a3-add b{font-size:30px;line-height:1;font-weight:400}
+.a3-add:hover{border-color:var(--pan);color:var(--pan)}
+.btn-al-remove{background:none;border:1px solid var(--border);color:var(--text-dim);cursor:pointer;font-size:13px;padding:3px 7px;flex-shrink:0}
+.btn-al-remove:hover{border-color:var(--war);color:var(--war)}
+body.guest-mode .btn-al-remove,body.guest-mode .a3-add,body.guest-mode .t11-group{pointer-events:none;opacity:.4}
+/* ===== player list: the name keeps its room, badges wrap if needed ===== */
+.pool-card .pool-pseudo{min-width:72px;flex:1 1 72px}
+.pool-card .pool-badges{flex-shrink:1;flex-wrap:wrap;min-width:0;justify-content:flex-end}
+/* ===== phone ===== */
+@media(max-width:600px){
+  .player-card{flex-wrap:wrap;row-gap:6px}
+  .player-card .player-pseudo{flex:1 1 0;min-width:0}
+  .player-card .p-badges{order:5;flex-basis:100%;padding-left:26px}
+  .btn-rl,.player-card .btn-icon{min-width:36px;min-height:34px}
+  .t11-group button{padding:7px 10px;min-height:36px}
+  .rank-help{margin-top:-26px}
+  .star-pop{left:12px!important;right:12px!important;top:auto!important;bottom:12px!important;min-width:0}
+  .star-pop button{min-height:48px;font-size:17px}
+}
 </style>
 </head>
 <body>
@@ -1008,7 +1061,7 @@ body.guest-mode .pool-add-form { display: none; }
     <span class="drag-picker-emoji">🛡️</span>
     <span class="drag-picker-label alliance-label-war">WAR</span>
   </div>
-  <div class="drag-picker-option pan" ondragover="onDragOverZone(event)" ondragleave="onDragLeaveZone(event)" ondrop="onDropAlliance(event,'pan')">
+  <div class="drag-picker-option pan a3" ondragover="onDragOverZone(event)" ondragleave="onDragLeaveZone(event)" ondrop="onDropAlliance(event,'pan')">
     <span class="drag-picker-emoji">🐼</span>
     <span class="drag-picker-label alliance-label-pan">PAN</span>
   </div>
@@ -1093,7 +1146,7 @@ body.guest-mode .pool-add-form { display: none; }
         </div>
         <div class="stat-pill koe"><span class="label alliance-label-koe">KOE</span><span class="value" id="count-koe">0</span></div>
         <div class="stat-pill war"><span class="label alliance-label-war">WAR</span><span class="value" id="count-war">0</span></div>
-        <div class="stat-pill pan"><span class="label alliance-label-pan">PAN</span><span class="value" id="count-pan">0</span></div>
+        <div class="stat-pill pan a3"><span class="label alliance-label-pan">PAN</span><span class="value" id="count-pan">0</span></div>
         <div class="stat-pill">
           <span class="label">T11</span>
           <span class="value" id="count-t11" style="color:var(--t11)">0</span>
@@ -1136,16 +1189,18 @@ body.guest-mode .pool-add-form { display: none; }
             <option>TG7</option><option>TG8</option>
           </select>
         </div>
+        <div class="pool-field">
+          <label>T11</label>
+          <select class="f-tg f-t11" id="pool-t11g"><option value="">—</option><option value="ica" data-i18n="t11_all">T11 ALL</option><option value="i" data-i18n="t11_i">T11 Infantry</option><option value="c" data-i18n="t11_c">T11 Cavalry</option><option value="a" data-i18n="t11_a">T11 Archer</option><option value="ic" data-i18n="t11_ic">T11 Infantry + Cavalry</option><option value="ia" data-i18n="t11_ia">T11 Infantry + Archer</option><option value="ca" data-i18n="t11_ca">T11 Cavalry + Archer</option><option value="?" hidden disabled>T11 (?)</option></select>
+        </div>
         <div class="pool-cb-group">
-          <label class="cb-label"><input type="checkbox" id="pool-t11"> T11</label>
-          <span class="cb-sep"></span>
-          <label class="cb-label avail"><input type="radio" name="pool-avail" id="pool-avail-full" value="full" checked> <span data-i18n="lbl_full">Full Battle</span></label>
+                    <label class="cb-label avail"><input type="radio" name="pool-avail" id="pool-avail-full" value="full" checked> <span data-i18n="lbl_full">Full Battle</span></label>
           <label class="cb-label half1"><input type="radio" name="pool-avail" id="pool-avail-h1" value="h1"> <span data-i18n="lbl_h1">1st Half</span></label>
           <label class="cb-label half2"><input type="radio" name="pool-avail" id="pool-avail-h2" value="h2"> <span data-i18n="lbl_h2">2nd Half</span></label>
           <span class="cb-sep"></span>
           <label class="cb-label cb-koe"><input type="checkbox" id="pool-koe" onchange="onAllianceCb('koe')"> <span class="alliance-label-koe">KOE</span></label><button type="button" class="btn-edit-role" onclick="editAllianceName('koe')" title="Edit alliance name">✎</button>
           <label class="cb-label cb-war"><input type="checkbox" id="pool-war" onchange="onAllianceCb('war')"> <span class="alliance-label-war">WAR</span></label><button type="button" class="btn-edit-role" onclick="editAllianceName('war')" title="Edit alliance name">✎</button>
-          <label class="cb-label cb-pan"><input type="checkbox" id="pool-pan" onchange="onAllianceCb('pan')"> <span class="alliance-label-pan">PAN</span></label><button type="button" class="btn-edit-role" onclick="editAllianceName('pan')" title="Edit alliance name">✎</button>
+          <span class="a3" style="display:inline-flex;align-items:center"><label class="cb-label cb-pan"><input type="checkbox" id="pool-pan" onchange="onAllianceCb('pan')"> <span class="alliance-label-pan">PAN</span></label><button type="button" class="btn-edit-role" onclick="editAllianceName('pan')" title="Edit alliance name">✎</button></span>
         </div>
         <button class="btn-pool-add" onclick="addToPool()">+ <span data-i18n="btn_add">Add Player</span></button>
       </div>
@@ -1161,7 +1216,7 @@ body.guest-mode .pool-add-form { display: none; }
         <button class="filter-btn" onclick="togglePoolFilter('unassigned',this)">Unassigned</button>
         <button class="filter-btn" onclick="togglePoolFilter('koe',this)"><span class="alliance-label-koe">KOE</span></button>
         <button class="filter-btn" onclick="togglePoolFilter('war',this)"><span class="alliance-label-war">WAR</span></button>
-        <button class="filter-btn" onclick="togglePoolFilter('pan',this)"><span class="alliance-label-pan">PAN</span></button>
+        <button class="filter-btn a3" onclick="togglePoolFilter('pan',this)"><span class="alliance-label-pan">PAN</span></button>
         <button class="filter-btn" onclick="togglePoolFilter('t11',this)">T11</button>
         <button class="filter-btn" onclick="togglePoolFilter('avail',this)">Full Avail</button>
         <button class="filter-btn" onclick="togglePoolFilter('h1',this)" style="color:#4a8aff">1st Half</button>
@@ -1233,7 +1288,7 @@ body.guest-mode .pool-add-form { display: none; }
         </div>
       </div>
 
-      <div class="alliance-col pan" ondragover="onDragOverZone(event)" ondragleave="onDragLeaveZone(event)" ondrop="onDropAlliance(event,'pan')">
+      <div class="alliance-col pan a3" ondragover="onDragOverZone(event)" ondragleave="onDragLeaveZone(event)" ondrop="onDropAlliance(event,'pan')">
         <div class="col-header">
           <div class="col-logo">🐼</div>
           <div class="col-info">
@@ -1247,6 +1302,7 @@ body.guest-mode .pool-add-form { display: none; }
             </div>
           </div>
           <div class="col-count" id="bigcount-pan">0</div>
+          <button class="btn-al-remove" onclick="removeThirdAlliance()" title="Remove this alliance" data-i18n-title="al_remove">🗑</button>
           <button class="btn-collapse" onclick="toggleCollapse('pan')" title="Collapse/expand list">▾</button>
         </div>
         <div class="players-list-wrap">
@@ -1256,7 +1312,9 @@ body.guest-mode .pool-add-form { display: none; }
         </div>
       </div>
 
+      <button type="button" class="a3-add" onclick="addThirdAlliance()"><b>+</b><span data-i18n="al_add">Add 3rd alliance</span></button>
     </div>
+    <div class="rank-help" data-i18n="rank_help">Order in each alliance: ★ starred players first, then power = TG level + 1 point per T11 type (equal → higher TG first)</div>
 
     <!-- ACTIONS -->
     <div class="actions-bar">
@@ -1276,7 +1334,7 @@ body.guest-mode .pool-add-form { display: none; }
         <button class="filter-btn" onclick="toggleFilter('unassigned',this)" data-i18n="f_unassigned">Unassigned</button>
         <button class="filter-btn" onclick="toggleFilter('koe',this)"><span class="alliance-label-koe">KOE</span></button>
         <button class="filter-btn" onclick="toggleFilter('war',this)"><span class="alliance-label-war">WAR</span></button>
-        <button class="filter-btn" onclick="toggleFilter('pan',this)"><span class="alliance-label-pan">PAN</span></button>
+        <button class="filter-btn a3" onclick="toggleFilter('pan',this)"><span class="alliance-label-pan">PAN</span></button>
         <button class="filter-btn" onclick="toggleFilter('t11',this)">T11</button>
         <button class="filter-btn" onclick="toggleFilter('avail',this)" data-i18n="f_avail">Full Avail</button>
         <button class="filter-btn" onclick="toggleFilter('h1',this)" style="color:#4a8aff" data-i18n="lbl_h1">1st Half</button>
@@ -1336,17 +1394,20 @@ body.guest-mode .pool-add-form { display: none; }
       </select>
     </div>
     <div class="modal-field">
+      <label>T11</label>
+      <select id="edit-t11g"><option value="">—</option><option value="ica" data-i18n="t11_all">T11 ALL</option><option value="i" data-i18n="t11_i">T11 Infantry</option><option value="c" data-i18n="t11_c">T11 Cavalry</option><option value="a" data-i18n="t11_a">T11 Archer</option><option value="ic" data-i18n="t11_ic">T11 Infantry + Cavalry</option><option value="ia" data-i18n="t11_ia">T11 Infantry + Archer</option><option value="ca" data-i18n="t11_ca">T11 Cavalry + Archer</option><option value="?" hidden disabled>T11 (?)</option></select>
+    </div>
+    <div class="modal-field">
       <label data-i18n="th_alliance">Alliance</label>
       <select id="edit-alliance">
         <option value="">— <span data-i18n="stat_unassigned">Unassigned</span></option>
         <option value="koe" class="alliance-label-koe" data-emoji="🐯">🐯 KOE</option>
         <option value="war" class="alliance-label-war" data-emoji="🛡️">🛡️ WAR</option>
-        <option value="pan" class="alliance-label-pan" data-emoji="🐼">🐼 PAN</option>
+        <option value="pan" class="alliance-label-pan a3" data-emoji="🐼">🐼 PAN</option>
       </select>
     </div>
     <div class="modal-cbs" style="flex-wrap:wrap;gap:10px;">
-      <label class="cb-label"><input type="checkbox" id="edit-t11"> T11</label>
-      <label class="cb-label avail"><input type="radio" name="edit-avail" id="edit-avail-full" value="full" checked> <span data-i18n="lbl_full">Full Battle</span></label>
+            <label class="cb-label avail"><input type="radio" name="edit-avail" id="edit-avail-full" value="full" checked> <span data-i18n="lbl_full">Full Battle</span></label>
       <label class="cb-label half1"><input type="radio" name="edit-avail" id="edit-avail-h1" value="h1"> <span data-i18n="lbl_h1">1st Half</span></label>
       <label class="cb-label half2"><input type="radio" name="edit-avail" id="edit-avail-h2" value="h2"> <span data-i18n="lbl_h2">2nd Half</span></label>
     </div>
@@ -1388,6 +1449,7 @@ body.guest-mode .pool-add-form { display: none; }
 // ══════════════════════════════════════════════════
 const LANGS = {
   en:{
+    c_gold:'Yellow',c_red:'Red',c_orange:'Orange',c_green:'Green',c_blue:'Blue',c_purple:'Purple',star_title:'STAR COLOUR',t11_all:'T11 ALL',t11_ic:'T11 Infantry + Cavalry',t11_ia:'T11 Infantry + Archer',t11_ca:'T11 Cavalry + Archer',t11_i:'T11 Infantry',t11_c:'T11 Cavalry',t11_a:'T11 Archer',star_none:'No star',al_add:'Add 3rd alliance',al_remove:'Remove this alliance',al_remove_q:'Remove {a}? Its {n} player(s) go back to the player list.',al_removed:'{a} removed',al_added:'{a} added back',rank_help:'Order in each alliance: ★ starred players first, then power = TG level + 1 point per T11 type (equal → higher TG first)',
     lock_welcome:'Welcome to',lock_label:'Access Code',lock_btn:'Enter',lock_err:'Incorrect code',
     header_badge:'KVK BATTLE ROSTER',subtitle:'Castle Battle — Alliance Roster Manager',
     stat_pool:'Pool',stat_unassigned:'Unassigned',stat_avail:'Full',stat_rl:'Rally Leads',
@@ -1415,6 +1477,7 @@ const LANGS = {
     assign_ph:'— assign',
   },
   fr:{
+    c_gold:'Jaune',c_red:'Rouge',c_orange:'Orange',c_green:'Vert',c_blue:'Bleu',c_purple:'Violet',star_title:'COULEUR DE L\'ÉTOILE',t11_all:'T11 ALL',t11_ic:'T11 Infanterie + Cavalerie',t11_ia:'T11 Infanterie + Archer',t11_ca:'T11 Cavalerie + Archer',t11_i:'T11 Infanterie',t11_c:'T11 Cavalerie',t11_a:'T11 Archer',star_none:'Pas d\'étoile',al_add:'Ajouter la 3e alliance',al_remove:'Supprimer cette alliance',al_remove_q:'Supprimer {a} ? Ses {n} joueur(s) retournent dans la liste des joueurs.',al_removed:'{a} supprimée',al_added:'{a} ajoutée à nouveau',rank_help:'Ordre dans chaque alliance : ★ les joueurs avec étoile d\'abord, puis puissance = niveau TG + 1 point par type de T11 (égalité → TG le plus haut d\'abord)',
     lock_welcome:'Bienvenue sur',lock_label:'Code d\'accès',lock_btn:'Entrer',lock_err:'Code incorrect',
     header_badge:'ROSTER KVK',subtitle:'Bataille du Château — Gestionnaire de Roster',
     stat_pool:'Total',stat_unassigned:'Non assignés',stat_avail:'Complet',stat_rl:'Rally Leads',
@@ -1469,6 +1532,7 @@ const LANGS = {
     assign_ph:'— zuweisen',
   },
   ko:{
+    c_gold:'노랑',c_red:'빨강',c_orange:'주황',c_green:'초록',c_blue:'파랑',c_purple:'보라',star_title:'별 색상',t11_all:'T11 ALL',t11_ic:'T11 보병 + 기병',t11_ia:'T11 보병 + 궁병',t11_ca:'T11 기병 + 궁병',t11_i:'T11 보병',t11_c:'T11 기병',t11_a:'T11 궁병',star_none:'별 없음',al_add:'세 번째 연맹 추가',al_remove:'이 연맹 삭제',al_remove_q:'{a}을(를) 삭제할까요? {n}명의 플레이어가 목록으로 돌아갑니다.',al_removed:'{a} 삭제됨',al_added:'{a} 다시 추가됨',rank_help:'연맹 내 순서: ★ 별이 있는 플레이어 먼저, 그다음 전투력 = TG 레벨 + T11 종류당 1점 (같으면 TG 높은 순)',
     lock_welcome:'에 오신 것을 환영합니다',lock_label:'접속 코드',lock_btn:'입장',lock_err:'잘못된 코드',
     header_badge:'KVK 배틀 로스터',subtitle:'성 전투 — 동맹 로스터 관리자',
     stat_pool:'전체',stat_unassigned:'미배정',stat_avail:'풀참',stat_rl:'랠리 리드',
@@ -1496,6 +1560,7 @@ const LANGS = {
     assign_ph:'— 배정',
   },
   tr:{
+    c_gold:'Sarı',c_red:'Kırmızı',c_orange:'Turuncu',c_green:'Yeşil',c_blue:'Mavi',c_purple:'Mor',star_title:'YILDIZ RENGİ',t11_all:'T11 ALL',t11_ic:'T11 Piyade + Süvari',t11_ia:'T11 Piyade + Okçu',t11_ca:'T11 Süvari + Okçu',t11_i:'T11 Piyade',t11_c:'T11 Süvari',t11_a:'T11 Okçu',star_none:'Yıldız yok',al_add:'3. ittifakı ekle',al_remove:'Bu ittifakı kaldır',al_remove_q:'{a} kaldırılsın mı? {n} oyuncusu oyuncu listesine döner.',al_removed:'{a} kaldırıldı',al_added:'{a} tekrar eklendi',rank_help:'İttifak içi sıra: ★ yıldızlı oyuncular önce, sonra güç = TG seviyesi + T11 türü başına 1 puan (eşitse yüksek TG önce)',
     lock_welcome:'\'e hoş geldiniz',lock_label:'Erişim Kodu',lock_btn:'Giriş',lock_err:'Yanlış kod',
     header_badge:'KVK SAVAŞ KADROSU',subtitle:'Kale Savaşı — İttifak Kadro Yöneticisi',
     stat_pool:'Toplam',stat_unassigned:'Atanmamış',stat_avail:'Tam',stat_rl:'Rally Liderleri',
@@ -1527,7 +1592,9 @@ const LANGS = {
 let currentLang = 'en';
 function T(k){ return LANGS[currentLang][k] || LANGS.en[k] || k; }
 
+function applyTitles(){ document.querySelectorAll('[data-i18n-title]').forEach(el=>{ el.title = T(el.dataset.i18nTitle); }); }
 function applyTranslations(){
+  setTimeout(applyTitles, 0);
   document.querySelectorAll('[data-i18n]').forEach(el => {
     el.textContent = T(el.getAttribute('data-i18n'));
   });
@@ -1636,12 +1703,86 @@ document.getElementById('lock-input').addEventListener('keydown', e=>{ if(e.key=
 // Sort: ★ Rally Lead > T11 > TG8 > TG7 > TG6 > TG5 > TG4 > TG3 > TG2 > TG1 > no TG
 // ══════════════════════════════════════════════════
 const TG_RANK = {'TG8':8,'TG7':7,'TG6':6,'TG5':5,'TG4':4,'TG3':3,'TG2':2,'TG1':1,'':0};
+
+// ---- T11 troop types: i = infantry, c = cavalry, a = archer (stored as a short string, e.g. "ica" = ALL)
+const T11_TYPES = [['i','INF'],['c','CAV'],['a','ARC']];
+function t11Set(p){
+  if(typeof p.t11s === 'string') return T11_TYPES.map(t=>t[0]).filter(x=>p.t11s.includes(x));
+  return p.t11 ? ['?'] : [];          // old players: "T11" ticked before the types existed
+}
+function t11Count(p){ const s=t11Set(p); return s[0]==='?' ? 1 : s.length; }
+function t11Text(p){
+  const s=t11Set(p); if(!s.length) return '';
+  if(s[0]==='?') return 'T11';
+  if(s.length===3) return 'T11 ALL';
+  return 'T11 '+s.map(x=>T11_TYPES.find(t=>t[0]===x)[1]).join('+');
+}
+function t11Short(p){ const s=t11Set(p); if(!s.length) return ''; if(s[0]==='?') return 'T11'; if(s.length===3) return 'ALL'; return s.length===1 ? T11_TYPES.find(t=>t[0]===s[0])[1] : s.map(x=>x.toUpperCase()).join('+'); }
+function t11Badge(p){ const tx=t11Text(p); return tx ? `<span class="badge t11${tx==='T11 ALL'?' t11-all':''}">${tx}</span>` : ''; }
+function getT11(gid){ const el=document.getElementById(gid); return el ? el.value : ''; }
+function setT11(gid, str){
+  const el=document.getElementById(gid); if(!el) return;
+  str = T11_TYPES.map(t=>t[0]).filter(x=>(str||'').includes(x)).join('');
+  if(str==='ai') str='ia'; if(str==='ac') str='ca';
+  el.value = str;
+}
+
+// ---- stars: several colours, in order of importance
+const STARS = [['gold','#ffd700','c_gold'],['red','#ff4d5e','c_red'],['blue','#3fa9ff','c_blue']];
+function starOf(p){ if(p.star && STARS.some(s=>s[0]===p.star)) return p.star; return p.rallyLead ? 'gold' : ''; }
+function starInfo(p){ return STARS.find(s=>s[0]===starOf(p)) || null; }
+function starRank(p){ return starOf(p) ? 0 : 1; }   // any colour: starred players come first
+function starName(p){ const s=starInfo(p); return s ? T(s[2]) : ''; }
+function starIcon(p){ const s=starInfo(p); return s ? `<span class="star-ic" style="color:${s[1]}">★</span>` : ''; }
+function starStyle(p){ const s=starInfo(p); return s ? ` style="--sc:${s[1]}"` : ''; }
+function starClass(p){ const s=starInfo(p); return s ? ' rally-lead star-'+s[0] : ''; }
+function fixPlayer(p){   // keep the old fields in step (filters, counts, exports, older copies of the site)
+  p.t11 = t11Count(p) > 0;
+  p.rallyLead = !!starOf(p);
+  if(p.rallyLead && !p.star) p.star = starOf(p);
+  if(!p.rallyLead) p.star = '';
+  return p;
+}
+let starPop = null;
+function closeStarPop(){ if(starPop){ starPop.remove(); starPop = null; } }
+function openStarPicker(id, btn){
+  closeStarPop();
+  const p=pool.find(x=>x.id===id); if(!p) return;
+  const cur=starOf(p);
+  const el=document.createElement('div'); el.className='star-pop';
+  el.innerHTML = `<div class="sp-title">${T('star_title')}</div>` +
+    STARS.map(s=>`<button type="button" data-s="${s[0]}" class="${cur===s[0]?'on':''}"><b style="color:${s[1]}">★</b>${T(s[2])}</button>`).join('') +
+    `<button type="button" data-s="" class="${!cur?'on':''}"><b style="color:var(--text-dim)">☆</b>${T('star_none')}</button>`;
+  document.body.appendChild(el); starPop = el; starPopY = scrollY;
+  const r=btn.getBoundingClientRect();
+  el.style.left = Math.max(8, Math.min(innerWidth - el.offsetWidth - 8, r.right - el.offsetWidth)) + 'px';
+  el.style.top = (r.bottom + el.offsetHeight + 8 > innerHeight ? Math.max(8, r.top - el.offsetHeight - 6) : r.bottom + 6) + 'px';
+  el.addEventListener('click', e=>{ const b=e.target.closest('[data-s]'); if(!b) return; setStar(id, b.dataset.s); closeStarPop(); });
+}
+document.addEventListener('pointerdown', e=>{ if(starPop && !starPop.contains(e.target) && !e.target.closest('.btn-rl')) closeStarPop(); }, true);
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeStarPop(); });
+let starPopY = 0;
+window.addEventListener('scroll', ()=>{ if(starPop && Math.abs(scrollY - starPopY) > 60) closeStarPop(); }, {passive:true});
+function setStar(id, key){
+  const p=pool.find(x=>x.id===id); if(!p) return;
+  p.star = key || ''; p.rallyLead = !!key;
+  render(); syncToFirebase();
+  const s=STARS.find(x=>x[0]===key);
+  showNotif(s ? `★ ${p.pseudo}` : `${p.pseudo} ${T('notif_rl_off')}`);
+}
+
+// ---- ranking inside an alliance (also used for the table and the exports)
+// 1) players with a star (any colour) before the others
+// 2) power = TG level (0-8) + 1 point per T11 type (0-3)   e.g. TG8 + T11 ALL = 11, TG8 + 2 types = 10, TG7 + ALL = 10
+// 3) equal power: higher TG first, then full battle before half, then name
+function powerScore(p){ return (TG_RANK[p.tg||'']||0) + t11Count(p); }
 function sortPlayers(players){
-  return [...players].sort((a,b)=>{
-    if(b.rallyLead !== a.rallyLead) return b.rallyLead ? 1 : -1;
-    if(b.t11 !== a.t11) return b.t11 ? 1 : -1;
-    return (TG_RANK[b.tg||'']||0) - (TG_RANK[a.tg||'']||0);
-  });
+  return [...players].sort((a,b)=>
+    starRank(a) - starRank(b)
+    || powerScore(b) - powerScore(a)
+    || (TG_RANK[b.tg||'']||0) - (TG_RANK[a.tg||'']||0)
+    || (b.avail?1:0) - (a.avail?1:0)
+    || String(a.pseudo||'').localeCompare(String(b.pseudo||'')));
 }
 
 // ══════════════════════════════════════════════════
@@ -1668,15 +1809,15 @@ function getAvailAndHalf(){
 
 function buildPlayer(pseudo, alliance){
   const tg  = document.getElementById('pool-tg').value;
-  const t11 = document.getElementById('pool-t11').checked;
+  const t11s = getT11('pool-t11g');
   const { avail, half } = getAvailAndHalf();
-  return { id: Date.now()+Math.random(), pseudo, tg, t11, avail, alliance: alliance||null, rallyLead:false, half };
+  return fixPlayer({ id: Date.now()+Math.random(), pseudo, tg, t11s, avail, alliance: alliance||null, rallyLead:false, star:'', half });
 }
 
 function resetForm(){
   document.getElementById('pool-pseudo').value='';
   document.getElementById('pool-tg').value='';
-  document.getElementById('pool-t11').checked=false;
+  setT11('pool-t11g','');
   document.getElementById('pool-avail-full').checked=true;
   document.getElementById('pool-koe').checked=false;
   document.getElementById('pool-war').checked=false;
@@ -1704,7 +1845,7 @@ function addToPool(){
 function assignPlayer(id, alliance){
   const p=pool.find(x=>x.id===id); if(!p) return;
   p.alliance = alliance||null;
-  if(!alliance) p.rallyLead=false;
+  if(!alliance){ p.rallyLead=false; p.star=''; }
   render(); syncToFirebase();
   if(alliance) showNotif(`${p.pseudo} ${T('notif_assigned')} ${allianceNames[alliance]}`);
   else showNotif(`${p.pseudo} ${T('notif_unassigned')}`);
@@ -1806,7 +1947,8 @@ function openEdit(id){
   document.getElementById('edit-id').value=id;
   document.getElementById('edit-pseudo').value=p.pseudo;
   document.getElementById('edit-tg').value=p.tg||'';
-  document.getElementById('edit-t11').checked=p.t11;
+  if(typeof p.t11s!=='string' && p.t11){ const o=document.querySelector('#edit-t11g option[value="?"]'); o.hidden=false; o.disabled=false; document.getElementById('edit-t11g').value='?'; } else { const o=document.querySelector('#edit-t11g option[value="?"]'); o.hidden=true; o.disabled=true; setT11('edit-t11g', p.t11s||''); }
+  { const o=document.querySelector('#edit-alliance option[value="pan"]'); if(o){ o.disabled=!!allianceNames.off3; o.hidden=!!allianceNames.off3; } }
   document.getElementById('edit-alliance').value=p.alliance||'';
   document.getElementById('edit-avail-full').checked = p.avail && !p.half;
   document.getElementById('edit-avail-h1').checked   = p.half==='h1';
@@ -1825,13 +1967,13 @@ function saveEdit(){
   const availVal = document.querySelector('input[name="edit-avail"]:checked')?.value || 'full';
   p.pseudo=pseudo;
   p.tg=document.getElementById('edit-tg').value;
-  p.t11=document.getElementById('edit-t11').checked;
+  { const v=getT11('edit-t11g'); if(v==='?'){ delete p.t11s; p.t11=true; } else p.t11s=v; } fixPlayer(p);
   p.avail = availVal === 'full';
   p.half  = availVal === 'h1' ? 'h1' : availVal === 'h2' ? 'h2' : null;
   const newAlliance = document.getElementById('edit-alliance').value||null;
   if(newAlliance !== p.alliance){
     p.alliance=newAlliance;
-    if(!newAlliance) p.rallyLead=false;
+    if(!newAlliance){ p.rallyLead=false; p.star=''; }
   }
   document.getElementById('edit-modal').style.display='none';
   render(); syncToFirebase();
@@ -1850,7 +1992,7 @@ function deleteFromEdit(){
 
 function toggleRallyLead(id){
   const p=pool.find(x=>x.id===id); if(!p) return;
-  p.rallyLead=!p.rallyLead;
+  p.rallyLead=!p.rallyLead; p.star=p.rallyLead?'gold':'';
   render(); syncToFirebase();
   showNotif(p.rallyLead ? `★ ${p.pseudo} ${T('notif_rl_on')}` : `${p.pseudo} ${T('notif_rl_off')}`);
 }
@@ -1944,13 +2086,13 @@ function renderPool(){
     return;
   }
   c.innerHTML = players.map(p=>`
-    <div class="pool-card ${p.avail?'avail-full':'avail-partial'} ${p.alliance?'assigned':''} ${p.rallyLead?'rally-lead':''}" draggable="true" ondragstart="onDragStart(event,${p.id})" ondragend="onDragEnd(event)">
+    <div class="pool-card ${p.avail?'avail-full':'avail-partial'} ${p.alliance?'assigned':''}${starClass(p)}"${starStyle(p)} draggable="true" ondragstart="onDragStart(event,${p.id})" ondragend="onDragEnd(event)">
       <div class="avail-dot" title="${p.avail?T('lbl_full'):'Partial'}"></div>
-      <span class="pool-pseudo" title="${escHtml(p.pseudo)}">${p.rallyLead?'★ ':''}${escHtml(p.pseudo)}</span>
+      <span class="pool-pseudo" title="${escHtml(p.pseudo)}">${starIcon(p)}${escHtml(p.pseudo)}</span>
       <div class="pool-badges">
-        ${p.t11?`<span class="badge t11">T11</span>`:''}
+        ${t11Badge(p)}
         ${p.tg?`<span class="badge ${p.tg.toLowerCase()}">${p.tg}</span>`:''}
-        ${p.rallyLead?`<span class="badge rl">RL</span>`:''}
+        ${starInfo(p)?`<span class="badge star-b"${starStyle(p)}>★</span>`:''}
         ${p.avail?`<span class="badge avail">FULL</span>`:p.half?halfBadge(p.half):''}
         ${p.alliance?`<span class="badge assigned-${p.alliance}">${allianceNames[p.alliance]}</span>`:''}
       </div>
@@ -1958,7 +2100,7 @@ function renderPool(){
         <option value="" ${!p.alliance?'selected':''}>${T('assign_ph')}</option>
         <option value="koe" ${p.alliance==='koe'?'selected':''}>${allianceNames.koe}</option>
         <option value="war" ${p.alliance==='war'?'selected':''}>${allianceNames.war}</option>
-        <option value="pan" ${p.alliance==='pan'?'selected':''}>${allianceNames.pan}</option>
+        ${allianceNames.off3?'':`<option value="pan" ${p.alliance==='pan'?'selected':''}>${allianceNames.pan}</option>`}
       </select>
       <button class="btn-icon" onclick="openEdit(${p.id})" title="Edit">✎</button>
       <button class="btn-icon btn-del" onclick="removeFromPool(${p.id})" title="Remove">×</button>
@@ -1966,22 +2108,24 @@ function renderPool(){
 }
 
 function renderAlliances(){
+  document.body.classList.toggle('no-a3', !!allianceNames.off3);
   ['koe','war','pan'].forEach(a=>{
     const list=document.getElementById(`list-${a}`);
     const raw=pool.filter(p=>p.alliance===a);
     document.getElementById(`bigcount-${a}`).textContent=raw.length;
     if(!raw.length){ list.innerHTML=`<div class="empty-state">${T('no_players')}</div>`; return; }
     const sorted=sortPlayers(raw);
-    list.innerHTML=sorted.map(p=>`
-      <div class="player-card ${p.avail?'avail-full':'avail-partial'} ${p.rallyLead?'rally-lead':''}" draggable="true" ondragstart="onDragStart(event,${p.id})" ondragend="onDragEnd(event)">
+    list.innerHTML=sorted.map((p,i)=>`
+      <div class="player-card ${p.avail?'avail-full':'avail-partial'}${starClass(p)}"${starStyle(p)} draggable="true" ondragstart="onDragStart(event,${p.id})" ondragend="onDragEnd(event)">
         <div class="avail-stripe"></div>
-        <span class="player-pseudo">${p.rallyLead?'★ ':''}${escHtml(p.pseudo)}</span>
+        <span class="p-rank">${i+1}</span>
+        <span class="player-pseudo">${starIcon(p)}${escHtml(p.pseudo)}</span>
         <div class="p-badges">
-          ${p.t11?`<span class="badge t11">T11</span>`:''}
+          ${t11Badge(p)}
           ${p.tg?`<span class="badge ${p.tg.toLowerCase()}">${p.tg}</span>`:''}
           ${p.avail?`<span class="badge avail">FULL</span>`:p.half?halfBadge(p.half):`<span class="badge partial-b">PART</span>`}
         </div>
-        <button class="btn-rl ${p.rallyLead?'active':''}" onclick="toggleRallyLead(${p.id})" title="Rally Lead">★</button>
+        <button class="btn-rl ${starInfo(p)?'active':''}" onclick="openStarPicker(${p.id},this)" title="${T('star_title')}">★</button>
         <button class="btn-icon" onclick="openEdit(${p.id})" title="Edit" style="color:var(--text-dim);font-size:15px">✎</button>
         <button class="btn-icon btn-del" onclick="assignPlayer(${p.id},'')" title="Unassign" style="font-size:13px">↩</button>
       </div>`).join('');
@@ -2036,15 +2180,15 @@ function renderTable(){
     return;
   }
   tbody.innerHTML=rows.map((r,i)=>`
-    <tr style="${r.rallyLead?'background:rgba(255,215,0,0.03)':''}">
+    <tr style="${starInfo(r)?'background:color-mix(in srgb,'+starInfo(r)[1]+' 5%,transparent)':''}">
       <td style="color:var(--text-dim);font-family:'Share Tech Mono',monospace;font-size:11px">${String(i+1).padStart(2,'0')}</td>
-      <td style="font-weight:700;${r.rallyLead?'color:var(--rl)':''}">${r.rallyLead?'★ ':''}${escHtml(r.pseudo)}</td>
+      <td style="font-weight:700;${starInfo(r)?'color:'+starInfo(r)[1]:''}">${starIcon(r)}${escHtml(r.pseudo)}</td>
       <td class="${r.alliance?'a-'+r.alliance:'a-none'}">${r.alliance?allianceNames[r.alliance]:'—'}</td>
       <td style="color:var(--text-muted);font-size:12px">${r.alliance?T(ROLES[r.alliance]):'—'}</td>
       <td style="font-size:12px">${halfLabel(r.half)}</td>
       <td>${r.tg?`<span class="badge ${r.tg.toLowerCase()}">${r.tg}</span>`:'<span style="color:var(--text-dim)">—</span>'}</td>
-      <td>${r.t11?`<span class="badge t11">T11</span>`:'<span style="color:var(--text-dim)">—</span>'}</td>
-      <td>${r.rallyLead?`<span class="badge rl">★ RL</span>`:'<span style="color:var(--text-dim)">—</span>'}</td>
+      <td>${t11Badge(r)||'<span style="color:var(--text-dim)">—</span>'}</td>
+      <td>${starInfo(r)?`<span class="badge star-b"${starStyle(r)}>★ ${starName(r)}</span>`:'<span style="color:var(--text-dim)">—</span>'}</td>
       <td>${r.avail?`<span class="badge avail">${T('lbl_full')}</span>`:r.half?halfBadge(r.half):'<span style="color:var(--text-dim)">—</span>'}</td>
     </tr>`).join('');
 }
@@ -2239,7 +2383,7 @@ function exportPDF(fields){
       const stats=[
         {l:allianceNames.koe,v:pool.filter(p=>p.alliance==='koe').length,c:C.koe},
         {l:allianceNames.war,v:pool.filter(p=>p.alliance==='war').length,c:C.war},
-        {l:allianceNames.pan,v:pool.filter(p=>p.alliance==='pan').length,c:C.pan},
+        ...(allianceNames.off3?[]:[{l:allianceNames.pan,v:pool.filter(p=>p.alliance==='pan').length,c:C.pan}]),
         {l:'T11',v:pool.filter(p=>p.t11).length,c:C.t11},
         {l:'RALLY LEADS',v:pool.filter(p=>p.rallyLead).length,c:C.rl},
       ];
@@ -2288,7 +2432,7 @@ function exportPDF(fields){
   const cols=[{key:'idx',label:'#',x:15},{key:'pseudo',label:'PSEUDO',x:22}];
   let cx=72;
   if(fields.tg)    { cols.push({key:'tg',label:'TG',x:cx}); cx+=16; }
-  if(fields.t11)   { cols.push({key:'t11',label:'T11',x:cx}); cx+=14; }
+  if(fields.t11)   { cols.push({key:'t11',label:'T11',x:cx}); cx+=16; }
   if(fields.half)  { cols.push({key:'half',label:'HALF',x:cx}); cx+=14; }
   if(fields.rl)    { cols.push({key:'rl',label:'RL',x:cx}); cx+=14; }
   if(fields.avail) { cols.push({key:'avail',label:'AVAILABILITY',x:cx}); cx+=24; }
@@ -2323,23 +2467,24 @@ function exportPDF(fields){
 
     players.forEach((p,idx)=>{
       if(y+rowH>ph-margin){ footer(pageNum,'?'); doc.addPage(); pageNum++; y=drawHeader(false); }
-      const isRL=p.rallyLead;
-      if(isRL){ doc.setFillColor(42,32,0); doc.rect(14,y,pw-28,rowH,'F'); }
+      const isRL=!!starInfo(p);
+      const sRGB=isRL?[1,3,5].map(i=>parseInt(starInfo(p)[1].substr(i,2),16)):C.rl;
+      if(isRL){ doc.setFillColor(...sRGB.map(v=>Math.round(v*0.17))); doc.rect(14,y,pw-28,rowH,'F'); }
       else if(idx%2===0){ doc.setFillColor(...C.bg3); doc.rect(14,y,pw-28,rowH,'F'); }
-      doc.setFillColor(...(isRL?C.rl:p.avail?C.avail:C.partial)); doc.rect(14,y,2,rowH,'F');
-      doc.setDrawColor(...(isRL?C.rl:C.border)); doc.setLineWidth(isRL?0.28:0.1);
+      doc.setFillColor(...(isRL?sRGB:p.avail?C.avail:C.partial)); doc.rect(14,y,2,rowH,'F');
+      doc.setDrawColor(...(isRL?sRGB:C.border)); doc.setLineWidth(isRL?0.28:0.1);
       doc.rect(14,y,pw-28,rowH,'S');
       const cy=y+5.5;
       doc.setFontSize(6.5); doc.setFont('helvetica','normal'); doc.setTextColor(...C.dim);
       doc.text(String(idx+1).padStart(2,'0'),15.5,cy);
-      doc.setFontSize(8); doc.setFont('helvetica','bold'); doc.setTextColor(...(isRL?C.rl:C.text));
+      doc.setFontSize(8); doc.setFont('helvetica','bold'); doc.setTextColor(...(isRL?sRGB:C.text));
       let ps2=(isRL?'* ':'')+p.pseudo; if(ps2.length>pseudoMaxChars) ps2=ps2.substring(0,pseudoMaxChars-1)+'…';
       doc.text(ps2,22,cy);
       cols.forEach(c=>{
         if(c.key==='tg'    && p.tg)  badge(c.x,cy,p.tg,tgC[p.tg]||C.muted);
-        if(c.key==='t11'   && p.t11) badge(c.x,cy,'T11',C.t11);
+        if(c.key==='t11'   && p.t11) badge(c.x,cy,t11Short(p),C.t11);
         if(c.key==='half'  && p.half) badge(c.x,cy,p.half==='h1'?'1st':'2nd',[90,154,255]);
-        if(c.key==='rl'    && isRL)  badge(c.x,cy,'★ RL',C.rl);
+        if(c.key==='rl'    && isRL)  badge(c.x,cy,'RL',sRGB);
         if(c.key==='avail') badge(c.x,cy,p.avail?'FULL':'PART',p.avail?C.avail:C.partial);
       });
       y+=rowH;
@@ -2360,7 +2505,7 @@ function exportPDF(fields){
 function exportCSV(){
   if(!pool.length){ showNotif('No players',true); return; }
   const header='Pseudo,Alliance,Role,Half,TG,T11,Rally Lead,Availability\n';
-  const rows=pool.map(p=>`"${p.pseudo}","${p.alliance?allianceNames[p.alliance]:''}","${p.alliance?T(ROLES[p.alliance]):''}","${halfLabel(p.half)}","${p.tg||''}","${p.t11?'Yes':'No'}","${p.rallyLead?'Yes':'No'}","${p.avail?'Full Battle':'Partial'}"`).join('\n');
+  const rows=pool.map(p=>`"${p.pseudo}","${p.alliance?allianceNames[p.alliance]:''}","${p.alliance?T(ROLES[p.alliance]):''}","${halfLabel(p.half)}","${p.tg||''}","${t11Text(p)||'No'}","${starInfo(p)?'Yes ('+starName(p)+')':'No'}","${p.avail?'Full Battle':'Partial'}"`).join('\n');
   const blob=new Blob([header+rows],{type:'text/csv'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
   a.download='752_kvk_roster.csv'; a.click();
@@ -2377,9 +2522,9 @@ function copyRoster(){
     const players=sortPlayers(pool.filter(p=>p.alliance===a)); if(!players.length) return;
     text+=`[ ${allianceNames[a]} — ${T(ROLES[a])} ] (${players.length})\n`;
     players.forEach(p=>{
-      text+= `  ${p.rallyLead?'★ ':'  '}${p.pseudo}`;
+      text+= `  ${starInfo(p)?'★ ':'  '}${p.pseudo}`;
       if(p.tg) text+=` [${p.tg}]`;
-      if(p.t11) text+=' [T11]';
+      if(p.t11) text+=` [${t11Text(p)}]`;
       if(p.half) text+=` [${halfLabel(p.half)}]`;
       text+=`  ${p.avail?'Full':'Partial'}\n`;
     });
@@ -2440,6 +2585,37 @@ function applyAllianceNames(){
   });
 }
 
+function askConfirm(msg, okLabel){   // confirmation drawn inside the page: works everywhere, also on phones and in previews
+  return new Promise(res=>{
+    const o=document.createElement('div'); o.className='modal-overlay'; o.style.display='flex'; o.style.zIndex='10060';
+    o.innerHTML=`<div class="modal" style="max-width:420px"><div class="modal-title">⚠</div><div style="font-size:15px;line-height:1.5;margin-bottom:18px;white-space:pre-line"></div><div class="modal-actions"><button class="btn-modal" data-ok style="background:var(--war-dim);border:1px solid var(--war);color:var(--war)"></button><button class="btn-modal cancel" data-no></button></div></div>`;
+    o.querySelector('.modal div:nth-child(2)').textContent=msg;
+    o.querySelector('[data-ok]').textContent=okLabel||'OK';
+    o.querySelector('[data-no]').textContent=T('btn_cancel');
+    const done=v=>{ o.remove(); document.removeEventListener('keydown',key); res(v); };
+    const key=e=>{ if(e.key==='Escape') done(false); if(e.key==='Enter') done(true); };
+    o.addEventListener('click',e=>{ if(e.target===o) done(false); if(e.target.closest('[data-ok]')) done(true); if(e.target.closest('[data-no]')) done(false); });
+    document.addEventListener('keydown',key);
+    document.body.appendChild(o); o.querySelector('[data-ok]').focus();
+  });
+}
+async function removeThirdAlliance(){
+  const n = pool.filter(p=>p.alliance==='pan').length;
+  if(!await askConfirm(T('al_remove_q').replace('{a}', allianceNames.pan).replace('{n}', n), '🗑 '+T('al_remove'))) return;
+  pool.forEach(p=>{ if(p.alliance==='pan'){ p.alliance=null; p.rallyLead=false; p.star=''; } });
+  allianceNames.off3 = true;
+  document.getElementById('pool-pan').checked = false;
+  poolActiveFilters.delete('pan'); activeFilters.delete('pan');
+  saveNames();
+  render(); syncToFirebase();
+  showNotif(T('al_removed').replace('{a}', allianceNames.pan));
+}
+function addThirdAlliance(){
+  allianceNames.off3 = false;
+  saveNames();
+  render();
+  showNotif(T('al_added').replace('{a}', allianceNames.pan));
+}
 function editAllianceName(alliance){
   const current = allianceNames[alliance];
   const input = prompt(`Rename the ${current} alliance:`, current);
@@ -2447,7 +2623,7 @@ function editAllianceName(alliance){
   const val = input.trim().toUpperCase() || defaultAllianceNames[alliance];
   allianceNames[alliance] = val;
   // Sync vers Firebase (partagé sur tous les appareils)
-  db.ref('settings/allianceNames').set(allianceNames).catch(e=>showNotif('Sync error: '+e.message,true));
+  saveNames();
   applyAllianceNames();
   render();
 }
@@ -2506,32 +2682,36 @@ const firebaseConfig={
   messagingSenderId:"762489973337",
   appId:"1:762489973337:web:1a4aa206302f9a88bc5f48"
 };
-firebase.initializeApp(firebaseConfig);
-const db=firebase.database();
-const rosterRef=db.ref('roster/pool');
-let ignoreNext=false;
+let db=null, rosterRef=null, ignoreNext=false;
+try{ firebase.initializeApp(firebaseConfig); db=firebase.database(); rosterRef=db.ref('roster/pool'); }
+catch(e){ console.warn('Firebase unavailable', e); setTimeout(()=>showNotif('⚠ Offline — changes stay on this screen only', true), 900); }
+function saveNames(){ if(!db) return; const r = db.ref('settings/allianceNames'); r.set(allianceNames).catch(e=>showNotif('Sync error: '+e.message, true)); }
 
-rosterRef.on('value',snapshot=>{
+if(rosterRef) rosterRef.on('value',snapshot=>{
   if(ignoreNext){ ignoreNext=false; return; }
   const data=snapshot.val();
   pool=data?(Array.isArray(data)?data:Object.values(data)):[];
-  pool.forEach(p=>{ if(!p.rallyLead) p.rallyLead=false; if(p.half===undefined) p.half=null; });
+  pool.forEach(p=>{ if(!p.rallyLead) p.rallyLead=false; if(p.half===undefined) p.half=null; fixPlayer(p); });
   render();
 });
 
 // Listener Firebase pour les noms d'alliances (partagé sur tous les appareils)
-db.ref('settings/allianceNames').on('value', snapshot => {
+if(db) db.ref('settings/allianceNames').on('value', snapshot => {
   const data = snapshot.val();
   if(data){
     if(data.koe) allianceNames.koe = data.koe;
     if(data.war) allianceNames.war = data.war;
     if(data.pan) allianceNames.pan = data.pan;
+    allianceNames.off3 = !!data.off3;
+    document.body.classList.toggle('no-a3', allianceNames.off3);
     applyAllianceNames();
     render();
   }
 });
 
 function syncToFirebase(){
+  pool.forEach(fixPlayer);
+  if(!rosterRef) return;
   ignoreNext=true;
   rosterRef.set(pool).catch(e=>showNotif('Sync error: '+e.message,true));
 }
@@ -2541,7 +2721,7 @@ function syncToFirebase(){
 // ══════════════════════════════════════════════════
 function render(){
   if(document.getElementById('app').style.display === 'none') return;
-  renderPool(); renderAlliances(); updateCounts(); renderTable();
+  closeStarPop(); renderPool(); renderAlliances(); updateCounts(); renderTable();
 }
 
 // Restore session
